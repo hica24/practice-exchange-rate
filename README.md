@@ -2,6 +2,24 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.9.
 
+## Componente Uses
+
+ng-select -> Select with format
+https://github.com/ng-select/ng-select
+
+font-awesome -> Iconos
+https://github.com/FortAwesome/Font-Awesome
+
+moment -> working date
+https://github.com/moment/moment/
+
+ngx-currency -> Mask for decimals
+https://github.com/nbfontana/ngx-currency
+
+Bootstrap
+https://github.com/twbs/bootstrap
+
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.

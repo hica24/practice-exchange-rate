@@ -16,6 +16,8 @@ export class ExchangeRateComponent implements OnInit {
   nameCurrencyTo = '';
   valueDolarCurrent = 0;
   valueCurrent = 1;
+  symbolDolar = 'USD';
+  symbolSoles = 'PEN';
   constructor(
     private fb: FormBuilder,
     private exchangeRateService: ExchangeRateService) {
@@ -25,28 +27,28 @@ export class ExchangeRateComponent implements OnInit {
   ngOnInit() {
     this.callServiceConvert();
     this.onChangeCurrencyAndText();
-    this.onConvert(this.valueCurrent);
+    this.onConvert();
   }
-  onConvert(value: number) {
-    this.valueCurrent = +value;
+  onConvert() {
+    this.valueCurrent = +this.form.controls.amount.value;
     this.callServiceConvert();
   }
   onChangeCurrencyAndText() {
-    if (this.form.controls.currencyFrom.value === 'USD') {
+    if (this.form.controls.currencyFrom.value === this.symbolDolar) {
       this.nameCurrencyFrom = Currency.USD;
-      if (this.form.controls.currencyTo.value === 'PEN') {
+      if (this.form.controls.currencyTo.value === this.symbolSoles) {
         this.nameCurrencyTo = Currency.PEN;
         this.valueConvert = this.convertSoles(this.valueCurrent, this.valueDolarCurrent);
-      } else if (this.form.controls.currencyTo.value === 'USD') {
+      } else if (this.form.controls.currencyTo.value === this.symbolDolar) {
         this.nameCurrencyTo = Currency.USD;
         this.valueConvert = this.valueCurrent;
       }
-    } else if (this.form.controls.currencyFrom.value === 'PEN') {
+    } else if (this.form.controls.currencyFrom.value === this.symbolSoles) {
       this.nameCurrencyFrom = Currency.PEN;
-      if (this.form.controls.currencyTo.value === 'PEN') {
+      if (this.form.controls.currencyTo.value === this.symbolSoles) {
         this.nameCurrencyTo = Currency.PEN;
         this.valueConvert = this.valueCurrent;
-      } else if (this.form.controls.currencyTo.value === 'USD') {
+      } else if (this.form.controls.currencyTo.value === this.symbolDolar) {
         this.nameCurrencyTo = Currency.USD;
         this.valueConvert = this.convertDolar(this.valueCurrent, this.valueDolarCurrent);
       }
@@ -59,7 +61,7 @@ export class ExchangeRateComponent implements OnInit {
     return value / divisor;
   }
   onChangeSelect() {
-    this.onConvert(this.form.controls.amount.value);
+    this.onConvert();
   }
   onExchange() {
     const currencyFrom = this.form.controls.currencyFrom.value;
@@ -83,8 +85,8 @@ export class ExchangeRateComponent implements OnInit {
   private creatingform() {
     this.form = this.fb.group({
       amount: [1, [Validators.required]],
-      currencyFrom: ['USD'],
-      currencyTo: ['PEN']
+      currencyFrom: [this.symbolDolar],
+      currencyTo: [this.symbolSoles]
     });
   }
 

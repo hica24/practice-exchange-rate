@@ -1,6 +1,13 @@
 .exchange-rate {
+    .card {
+        background-image: linear-gradient(to bottom, #012D74, #0C5FC7);
+        color: white;
+    }
+
     .icon-exchange {
-        font-size: 32px;
+        font-size: 1.7rem;
+        height   : 3.5rem;
+        margin   : 20px 0px 20px 0px;
         cursor   : pointer;
     }
 
@@ -15,9 +22,7 @@
         height             : 20px;
         width              : 20px;
     }
-    .btn.btn-warning{
-        font-size: 1.5rem;
-    }
+
     .converted {
         .amount {
             font-size: 5rem;

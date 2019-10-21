@@ -3,7 +3,7 @@
     <div class="card-body">
       <form [formGroup]="form">
         <div class="row">
-          <div class="col-4">
+          <div class="col-12 col-md-4">
             <div class="form-group">
               <label for="amount">Importe:</label>
               <input #amount currencyMask type="text" class="form-control" id="amount" aria-describedby="importe"
@@ -11,7 +11,7 @@
               <app-error-messages [control]="formControl['amount']"></app-error-messages>
             </div>
           </div>
-          <div class="col-3">
+          <div class="col-12 col-md-3">
             <div class="form-group">
               <label for="currencyTypeFrom">De:</label>
               <ng-select #currencySelect [searchable]="false" [clearable]="false" labelForId="currencyTypeFrom"
@@ -29,12 +29,12 @@
             </div>
 
           </div>
-          <div class="col-1 d-flex align-items-center">
+          <div class="col-12 col-md-1 d-flex justify-content-center">
             <div class="icon-exchange" (click)="onExchange()">
               <i class="fa fa-exchange"></i>
             </div>
           </div>
-          <div class="col-3">
+          <div class="col-12 col-md-3">
             <div class="form-group">
               <label for="currencyTypeTo">Para:</label>
               <ng-select [searchable]="false" [clearable]="false" labelForId="currencyTypeTo"
@@ -51,8 +51,8 @@
               </ng-select>
             </div>
           </div>
-          <div class="col-1 d-flex align-items-center">
-            <button type="button" class="btn btn-warning" (click)="onConvert(amount.value)">
+          <div class="col-12 col-xl-1 d-flex justify-content-center">
+            <button type="button" class="btn btn-warning icon-exchange" (click)="onConvert()">
               <i class="fa fa-chevron-right"></i>
             </button>
 
@@ -71,12 +71,12 @@
 
         </div>
         <div class="row">
-          <div class="col-4">
-            <p>
+          <div class="col-12 col-md-4 align-self-end">
+            <span>
                 Conversión de {{ nameCurrencyFrom }} a {{ nameCurrencyTo }}
-            </p>
+            </span>
           </div>
-          <div class="col-4 text-center">
+          <div class="col-12 col-md-4 text-center">
             <p>
               <strong>1 PEN = {{  1 / valueDolarCurrent  | number: '1.2-6' }} USD </strong>
             </p>
@@ -84,8 +84,8 @@
               <strong>1 USD = {{ valueDolarCurrent  | number: '1.2-6'}} PEN</strong>
             </p>
           </div>
-          <div class="col-4 d-flex justify-content-end">
-            <strong>
+          <div class="col-12 col-md-4 d-flex justify-content-end align-self-end">
+            <strong >
               Última actualización: {{ date }} UTC
             </strong>
           </div>
