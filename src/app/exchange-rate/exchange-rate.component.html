@@ -1,0 +1,96 @@
+<div class="container">
+  <div class="card my-4">
+    <div class="card-body">
+      <form [formGroup]="form">
+        <div class="row">
+          <div class="col-4">
+            <div class="form-group">
+              <label for="amount">Importe:</label>
+              <input #amount currencyMask type="text" class="form-control" id="amount" aria-describedby="importe"
+                placeholder="Monto" formControlName="amount">
+              <app-error-messages [control]="formControl['amount']"></app-error-messages>
+            </div>
+          </div>
+          <div class="col-3">
+            <div class="form-group">
+              <label for="currencyTypeFrom">De:</label>
+              <ng-select #currencySelect [searchable]="false" [clearable]="false" labelForId="currencyTypeFrom"
+                formControlName="currencyFrom" (change)="onChangeSelect()">
+                <ng-option value="USD">
+                  <img src="../../assets/images/icons-eeuu-48.png" width="20px" height="20px" />
+                  USD
+                </ng-option>
+                <ng-option value="PEN">
+                  <img src="../../assets/images/icons-peru-48.png" width="20px" height="20px" />
+                  PEN
+                </ng-option>
+
+              </ng-select>
+            </div>
+
+          </div>
+          <div class="col-1 d-flex align-items-center">
+            <div class="icon-exchange" (click)="onExchange()">
+              <i class="fa fa-exchange"></i>
+            </div>
+          </div>
+          <div class="col-3">
+            <div class="form-group">
+              <label for="currencyTypeTo">Para:</label>
+              <ng-select [searchable]="false" [clearable]="false" labelForId="currencyTypeTo"
+                formControlName="currencyTo" (change)="onChangeSelect()">
+                <ng-option value="USD">
+                  <img src="../../assets/images/icons-eeuu-48.png" width="20px" height="20px" />
+                  USD
+                </ng-option>
+                <ng-option value="PEN">
+                  <img src="../../assets/images/icons-peru-48.png" width="20px" height="20px" />
+                  PEN
+                </ng-option>
+
+              </ng-select>
+            </div>
+          </div>
+          <div class="col-1 d-flex align-items-center">
+            <button type="button" class="btn btn-warning" (click)="onConvert(amount.value)">
+              <i class="fa fa-chevron-right"></i>
+            </button>
+
+          </div>
+        </div>
+        <div class="row text-center">
+          <div class="col">
+            <p> {{ amount.value }} {{formControl['currencyFrom'].value}} = </p>
+            <p class="converted">
+              <span class="amount">{{ valueConvert | number: '1.2-5' }}</span>
+              <span class="currency"> {{formControl['currencyTo'].value}} </span>
+            </p>
+            <p></p>
+
+          </div>
+
+        </div>
+        <div class="row">
+          <div class="col-4">
+            <p>
+                Conversión de {{ nameCurrencyFrom }} a {{ nameCurrencyTo }}
+            </p>
+          </div>
+          <div class="col-4 text-center">
+            <p>
+              <strong>1 PEN = {{  1 / valueDolarCurrent  | number: '1.2-6' }} USD </strong>
+            </p>
+            <p>
+              <strong>1 USD = {{ valueDolarCurrent  | number: '1.2-6'}} PEN</strong>
+            </p>
+          </div>
+          <div class="col-4 d-flex justify-content-end">
+            <strong>
+              Última actualización: {{ date }} UTC
+            </strong>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
