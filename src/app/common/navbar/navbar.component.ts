@@ -11,7 +11,7 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit() {
   }
-  onClickNavbar(){
+  onClickNavbar() {
     this.active = !this.active;
   }
 

@@ -14,17 +14,18 @@ import { NavbarComponent } from './common/navbar/navbar.component';
 import { FooterComponent } from './common/footer/footer.component';
 import { ErrorMessagesComponent } from './common/error-messages/error-messages.component';
 import { ExchangeRateService } from './exchange-rate/exchange-rate.service';
+import { environment } from 'src/environments/environment';
 
 export const customCurrencyMaskConfig = {
    align: 'right',
-    allowNegative: false,
-    allowZero: true,
-    decimal: '.',
-    precision: 0,
-    prefix: '',
-    suffix: '',
-    thousands: ',',
-    nullable: false
+   allowNegative: false,
+   allowZero: true,
+   decimal: '.',
+   precision: environment.precisionDecimal,
+   prefix: '',
+   suffix: '',
+   thousands: ',',
+   nullable: false
 };
 
 

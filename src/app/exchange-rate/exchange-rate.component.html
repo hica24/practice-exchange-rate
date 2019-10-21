@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container exchange-rate">
   <div class="card my-4">
     <div class="card-body">
       <form [formGroup]="form">
@@ -7,7 +7,7 @@
             <div class="form-group">
               <label for="amount">Importe:</label>
               <input #amount currencyMask type="text" class="form-control" id="amount" aria-describedby="importe"
-                placeholder="Monto" formControlName="amount">
+                placeholder="Monto" formControlName="amount" autocomplete="off">
               <app-error-messages [control]="formControl['amount']"></app-error-messages>
             </div>
           </div>

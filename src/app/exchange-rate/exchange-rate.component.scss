@@ -1,23 +1,30 @@
-.icon-exchange {
-    font-size: 32px;
-    cursor: pointer;
-}
-.flag-us {
-    background-image: url(../../assets/images/icons-eeuu-48.png);
-    background-repeat: no-repeat;
-    background-position: 0 0;
-    background-size: cover;
-    margin-left: auto;
-    margin-right: auto;
-    vertical-align: text-top;
-    height: 20px;
-    width: 20px;
-}
-.converted{
-    .amount{
-        font-size: 5rem;
+.exchange-rate {
+    .icon-exchange {
+        font-size: 32px;
+        cursor   : pointer;
     }
-    .currency{
-        font-size: 3rem;
+
+    .flag-us {
+        background-image   : url(../../assets/images/icons-eeuu-48.png);
+        background-repeat  : no-repeat;
+        background-position: 0 0;
+        background-size    : cover;
+        margin-left        : auto;
+        margin-right       : auto;
+        vertical-align     : text-top;
+        height             : 20px;
+        width              : 20px;
+    }
+    .btn.btn-warning{
+        font-size: 1.5rem;
+    }
+    .converted {
+        .amount {
+            font-size: 5rem;
+        }
+
+        .currency {
+            font-size: 3rem;
+        }
     }
 }
